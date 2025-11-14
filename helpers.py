@@ -119,7 +119,7 @@ def generate_kymograph(length=400, width=128, contrast=1.0, diffusion=1.0,
             row += contrasts[i] * np.exp(-0.5 * ((xs - positions[i]) / w_samples) ** 2)
         gt[t] = row
 
-    noisy = np.clip(gt + noise_level * np.random.randn(length, width), 0, 1)
+    noisy = gt + noise_level * np.random.randn(length, width)
     return noisy, gt, paths
 
 
